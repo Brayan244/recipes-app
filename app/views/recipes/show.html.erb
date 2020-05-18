@@ -14,9 +14,22 @@
     </p>
     <p>
       <small><%= @recipe.chef.chef_name %></small>
+    </p>
+    <p>
       <div class="float-right">
         <%= time_ago_in_words(@recipe.created_at) %> ago
       </div>
     </p>
+
+  </div>
+  <div class="row">
+    <div class="col-md mt-2 mb-2">
+      <div class="float-right text-light">
+        <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: 'btn btn-xs btn-warning text-light' %>
+        <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete,
+                                    data: { confirm: "Are you sure you want to delete?" },
+                                    class: "btn btn-xs btn-danger" %>
+      </div>
+    </div>
   </div>
 </div>
