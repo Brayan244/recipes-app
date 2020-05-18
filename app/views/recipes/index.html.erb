@@ -1,9 +1,9 @@
 <h1 align="center">Listing all recipes</h1>
 <% @recipes.each do |recipe| %>
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 mx-auto mt-2">
     <section class="center">
-
+      <%= gravatar_for(recipe.chef, size: 120) %>
     </section>
   </div>
   <div class="col-md card mb-2 bg-light">
