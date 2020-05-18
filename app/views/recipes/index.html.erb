@@ -1,4 +1,8 @@
-<h1 align="center">Listing all recipes</h1>
+<%= render 'shared/page_title', title: "Listing all recipes" %>
+
+<div class="col-md-10 offset-md-11 mb-2">
+  <%= link_to  "Create Recipe", new_recipe_path %>
+</div>
 <% @recipes.each do |recipe| %>
 <div class="row">
   <div class="col-md-2 mx-auto mt-2">
