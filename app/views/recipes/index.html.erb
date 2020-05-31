@@ -1,5 +1,9 @@
 <%= render 'shared/page_title', title: "Listing all recipes" %>
 
+<div class="d-flex justify-content-center">
+  <%= will_paginate @recipes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
 <div class="col-md-10 offset-md-11 mb-2">
   <%= link_to  "Create Recipe", new_recipe_path %>
 </div>

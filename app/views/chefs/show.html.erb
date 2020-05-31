@@ -10,4 +10,9 @@
 
 <h4 align="center" class="mt-2"><%= "#{@chef.chef_name}´s recipes"%></h4>
 
-<%= render "recipes/recipes", obj: @chef.recipes %>
+
+<div class="d-flex justify-content-center">
+  <%= will_paginate @chef_recipes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
+<%= render "recipes/recipes", obj: @chef_recipes %>

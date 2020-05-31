@@ -4,14 +4,16 @@ class ChefsController < ApplicationController
   before_action :set_chef, only: %i[show edit update]
 
   def index
-    @chefs = Chef.all
+    @chefs = Chef.paginate(page: params[:page], per_page: 5)
   end
 
   def new
     @chef = Chef.new
   end
 
-  def show; end
+  def show
+    @chef_recipes = @chef.recipes.paginate(page: params[:page], per_page: 5)
+  end
 
   def edit; end
 

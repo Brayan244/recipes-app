@@ -1,5 +1,10 @@
 <%= render 'shared/page_title', title: 'Showing all chefs' %>
 
+
+<div class="d-flex justify-content-center">
+  <%= will_paginate @chefs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
 <div class="mx-auto">
   <% @chefs.each do |chef|%>
   <ul class="listing">
