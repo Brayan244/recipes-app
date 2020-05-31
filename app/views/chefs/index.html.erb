@@ -9,17 +9,22 @@
   <% @chefs.each do |chef|%>
   <ul class="listing">
     <div class="row">
-      <div class="card col-md-4 offset-md-4 bg-light d-flex justify-content-center">
-        <li>
+      <div class="card col-md-4 offset-md-4 bg-light p-3">
+        <li class="mx-auto">
           <%= link_to  gravatar_for(chef), chef_path(chef)%>
         </li>
-        <li class="chef-title">
+        <li class="chef-title mx-auto">
           <%= link_to chef.chef_name.capitalize, chef_path(chef)%>
         </li>
-        <li>
+        <li class="mx-auto">
           <small>
             <%= pluralize(chef.recipes.count, "recipe")%>
           </small>
+        </li>
+        <li class="mx-auto">
+          <%= link_to  "Delete this chef", chef_path(chef), method: :delete,
+            data: { confirm: "Are you sure to delete this chef and its recipes"}
+           %>
         </li>
       </div>
     </div>
