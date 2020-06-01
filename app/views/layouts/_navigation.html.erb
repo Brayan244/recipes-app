@@ -11,19 +11,30 @@
        <li class="nav-item">
          <%= link_to  "Recipes", recipes_path, class: 'nav-link' %>
        </li>
+       <% unless logged_in? %>
        <li class="nav-item">
          <%= link_to  "Sign Up", signup_path, class: 'nav-link' %>
        </li>
-       <li class="nav-item">
-         <%= link_to  "Log In", login_path, class: 'nav-link' %>
-       </li>
-       <li class="nav-item">
-         <%= link_to  "Log out", logout_path, method: :delete, class: 'nav-link' %>
-       </li>
+       <%end %>
      </ul>
-     <form class="form-inline mt-2 mt-md-0">
-       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-     </form>
-   </div>
+     <div class=" form-inline mt-2 mt-md-0 mr-5">
+       <ul class="navbar-nav mr-auto">
+         <% unless logged_in? %>
+         <li class="nav-item">
+           <%= link_to  "Log In", login_path, class: 'nav-link'  %>
+         </li>
+         <% else %>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+           <div class="dropdown-menu" aria-labelledby="dropdown01">
+             <%= link_to  "Your profile", chef_path(current_chef), class: 'dropdown-item' %>
+             <%= link_to  "Edit your profile", edit_chef_path(current_chef), class: 'dropdown-item'%>
+           </div>
+         </li>
+         <li class="nav-item">
+           <%= link_to  "Log out", logout_path, method: :delete, class: 'nav-link' %>
+         </li>
+         <%end %>
+       </ul>
+     </div>
  </nav>

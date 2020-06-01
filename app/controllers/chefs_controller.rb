@@ -20,6 +20,7 @@ class ChefsController < ApplicationController
   def create
     @chef = Chef.new(chef_params)
     if @chef.save
+      session[:chef_id] = @chef.id
       flash[:success] = 'Chef was Sign up successfully!'
       redirect_to chef_path(@chef)
     else
