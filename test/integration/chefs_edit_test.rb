@@ -13,6 +13,7 @@ class ChefsEditTest < ActionDispatch::IntegrationTest
   end
 
   test 'reject invalid signup' do
+    sign_in_as(@chef, 'password')
     get edit_chef_path(@chef)
 
     assert_template 'chefs/edit'
@@ -24,6 +25,7 @@ class ChefsEditTest < ActionDispatch::IntegrationTest
   end
 
   test 'accept valid signup' do
+    sign_in_as(@chef, 'password')
     get edit_chef_path(@chef)
 
     assert_template 'chefs/edit'
