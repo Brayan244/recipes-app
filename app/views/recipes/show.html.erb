@@ -4,6 +4,9 @@
   <h4 class="mx-auto "><strong>Description: </strong></h4>
   <hr />
   <%= @recipe.description %>
+  <% if @recipe.ingredients.any? %>
+  <p>Ingredients: <%= render @recipe.ingredients %></p>
+  <% end %>
 
   <div class="float-right">
     <p class="mx-auto">
