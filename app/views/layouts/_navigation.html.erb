@@ -11,6 +11,13 @@
        <li class="nav-item">
          <%= link_to  "Recipes", recipes_path, class: 'nav-link' %>
        </li>
+       <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingredients</a>
+         <div class="dropdown-menu" aria-labelledby="dropdown01">
+           <%= link_to  "All ingredients", ingredients_path, class: 'dropdown-item' %>
+           <%= link_to "New Ingredient", new_ingredient_path, class: 'dropdown-item' %>
+         </div>
+       </li>
        <% unless logged_in? %>
        <li class="nav-item">
          <%= link_to  "Sign Up", signup_path, class: 'nav-link' %>
