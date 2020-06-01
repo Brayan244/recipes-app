@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+class SessionsController < ApplicationController
+  def new; end
+
+  def create
+    chef = Chef.find_by(email: params[:session][:email].downcase)
+
+    if chef&.authenticate(session_params)
+      session[:chef_id] = chef.id
+      flash[:success] = 'You have successfully logged in'
+      redirect_to chef
+    else
+      flash.now[:danger] = 'There was something wrong with your login information'
+      render 'new'
+    end
+  end
+
+  def destroy
+    session[:chef_id] = nil
+    flash[:success] = 'You have logged out'
+    redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params[:session][:password]
+  end
+end
